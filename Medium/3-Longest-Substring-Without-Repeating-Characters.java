@@ -3,22 +3,26 @@ class Solution {
         String str = "";
         int max = 0;
 
+        int l = 0; int r = 0;
+        loop:
+        while(true)
+        {
+            str = s.substring(l,r);
+            for (int i = 0; i < str.length(); i++) {
+                for (int j = i+1; j < str.length(); j++) {
+                    if(str.charAt(i)==str.charAt(j)){
+                        l++;
+                        continue loop;
+                    }
 
-        int pos = 0;
-        for (int i = pos; i < s.length(); i++) {
-            for (int j = 0; j < str.length(); j++) {
-
-                if(str.charAt(j)==s.charAt(i)){
-                    if(str.length()>max) max = str.length();
-                    str = "";
-                    break;
                 }
-
             }
-            str = str + s.charAt(i);
-            pos++;
+            if(str.length()>max) max = str.length();
+            if(r==s.length()){
+                break;
+            }
+            r++;
         }
-
         return max;
     }
 }
