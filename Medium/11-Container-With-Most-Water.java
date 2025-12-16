@@ -6,10 +6,11 @@ class Solution {
         int r = height.length-1;
 
         while(l<r){
-
+            int min = Math.min(height[l],height[r]);
             if((Math.min(height[l],height[r]) * (r-l))>max) max = (Math.min(height[l],height[r]) * (r-l));
-            if(height[l]>height[r]) r--; else l++;
 
+            while(l < r && height[l] <= min) l++;
+            while(l < r && height[r] <= min) r--;
         }
 
 
