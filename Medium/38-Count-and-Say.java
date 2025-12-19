@@ -12,22 +12,24 @@ class Solution {
     }
 
     public String rle(String n) {
-        String str = "";
+        StringBuilder str = new StringBuilder();
 
         int count = 0;
         char ch = n.charAt(0);
         for (int i = 0; i < n.length(); i++) {
             if(n.charAt(i)!=ch){
-                str = str + count + ch;
+                str.append(count);
+                str.append(ch);
                 ch = n.charAt(i);
                 count = 0;
             }
             count++;
         }
-        str = str + count + ch;
+        str.append(count);
+        str.append(ch);
         ch = n.charAt(n.length()-1);
 
-        return str;
+        return str.toString();
     }
 
 }
