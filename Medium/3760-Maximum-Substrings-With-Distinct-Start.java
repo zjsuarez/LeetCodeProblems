@@ -5,11 +5,11 @@ class Solution {
         Map<Character,Integer> map = new HashMap<>();
 
         for (int i = 0; i < s.length(); i++) {
-            m
+            map.put(s.charAt(i),1);
         }
 
 
 
-        return count;
+        return map.size();
     }
 }
