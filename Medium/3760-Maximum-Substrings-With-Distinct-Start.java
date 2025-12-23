@@ -1,23 +1,30 @@
 class Solution {
-    public int maxDistinct(String s) {
-        int count = 0;
+    public int[] pivotArray(int[] nums, int pivot) {
+        int [] res = new int[nums.length];
 
+        int index = 0;
 
-        Map<Character,Integer> map = new HashMap<>();
-
-
-        for (int i = 0; i < s.length(); i++) {
-
-            if(!map.containsKey(s.charAt(i))){
-
-                map.put(s.charAt(i),map.size());
-
-                count++;
-
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]<pivot){
+                res[index] = nums[i];
+                index++;
             }
-
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]==pivot){
+                res[index] = nums[i];
+                index++;
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]>pivot){
+                res[index] = nums[i];
+                index++;
+            }
         }
 
-        return count;
+
+
+        return res;
     }
 }
